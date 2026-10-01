@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 480" width="100%" height="100%" style="background:#0d1117; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#21262d" stroke-width="0.7"/>
+    </pattern>
+    <!-- Arrowhead Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="38" fill="#58a6ff" font-size="20" font-weight="600">Laboratory Activity 3: GPIO and Dual LED Button Control</text>
+  <text x="30" y="62" fill="#8b949e" font-size="13">Target Microcontroller: ESP32-S3 (Active-LOW Pushbutton + Inverted LEDs)</text>
+
+  <!-- ESP32-S3 Module Block -->
+  <rect x="40" y="100" width="220" height="330" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <rect x="60" y="115" width="180" height="70" rx="6" fill="#21262d" stroke="#388bfd" stroke-width="1.5"/>
+  <text x="150" y="145" fill="#f0f6fc" font-size="14" font-weight="bold" text-anchor="middle">ESP32-S3</text>
+  <text x="150" y="165" fill="#79c0ff" font-size="11" text-anchor="middle">WROOM-1 / DevKit</text>
+
+  <!-- ESP32 Pins on Right Header -->
+  <!-- GPIO 4 -->
+  <circle cx="260" cy="220" r="5" fill="#e3b341" stroke="#fff" stroke-width="1.5"/>
+  <text x="245" y="225" fill="#f0f6fc" font-size="12" font-weight="600" text-anchor="end">GPIO 4</text>
+  
+  <!-- GPIO 5 -->
+  <circle cx="260" cy="280" r="5" fill="#3fb950" stroke="#fff" stroke-width="1.5"/>
+  <text x="245" y="285" fill="#f0f6fc" font-size="12" font-weight="600" text-anchor="end">GPIO 5</text>
+
+  <!-- GPIO 6 -->
+  <circle cx="260" cy="340" r="5" fill="#f85149" stroke="#fff" stroke-width="1.5"/>
+  <text x="245" y="345" fill="#f0f6fc" font-size="12" font-weight="600" text-anchor="end">GPIO 6</text>
+
+  <!-- GND Pin -->
+  <circle cx="260" cy="390" r="5" fill="#8b949e" stroke="#fff" stroke-width="1.5"/>
+  <text x="245" y="395" fill="#8b949e" font-size="12" font-weight="bold" text-anchor="end">GND</text>
+
+  <!-- CIRCUIT 1: BUTTON (GPIO 4 -> Pushbutton -> GND) -->
+  <!-- Wire from GPIO 4 to Pushbutton -->
+  <path d="M 260 220 L 400 220" fill="none" stroke="#e3b341" stroke-width="2.5"/>
+  
+  <!-- Pushbutton Box -->
+  <g transform="translate(400, 190)">
+    <rect x="0" y="0" width="80" height="60" rx="8" fill="#21262d" stroke="#e3b341" stroke-width="2"/>
+    <circle cx="40" cy="30" r="14" fill="#30363d" stroke="#e3b341" stroke-width="1.5"/>
+    <text x="40" y="76" fill="#e3b341" font-size="11" text-anchor="middle" font-weight="600">Pushbutton</text>
+    <text x="40" y="-8" fill="#8b949e" font-size="10" text-anchor="middle">INPUT_PULLUP</text>
+  </g>
+
+  <!-- Wire from Pushbutton to GND Bus -->
+  <path d="M 480 220 L 750 220" fill="none" stroke="#58a6ff" stroke-width="2.5"/>
+
+  <!-- CIRCUIT 2: LED 1 (GPIO 5 -> Resistor -> Green LED -> GND) -->
+  <path d="M 260 280 L 370 280" fill="none" stroke="#3fb950" stroke-width="2.5"/>
+  
+  <!-- 220 Ohm Resistor 1 -->
+  <g transform="translate(370, 270)">
+    <rect x="0" y="0" width="55" height="20" rx="3" fill="#d29922" stroke="#f0e6d2" stroke-width="1"/>
+    <line x1="12" y1="0" x2="12" y2="20" stroke="#f85149" stroke-width="2"/>
+    <line x1="22" y1="0" x2="22" y2="20" stroke="#f85149" stroke-width="2"/>
+    <line x1="32" y1="0" x2="32" y2="20" stroke="#a371f7" stroke-width="2"/>
+    <text x="27" y="35" fill="#f0e6d2" font-size="10" text-anchor="middle">220 Ω</text>
+  </g>
+  <path d="M 425 280 L 480 280" fill="none" stroke="#3fb950" stroke-width="2.5"/>
+
+  <!-- LED 1 (Green) Symbol -->
+  <g transform="translate(480, 260)">
+    <circle cx="20" cy="20" r="18" fill="#238636" stroke="#3fb950" stroke-width="2"/>
+    <polygon points="12,12 12,28 26,20" fill="#f0f6fc"/>
+    <line x1="26" y1="12" x2="26" y2="28" stroke="#f0f6fc" stroke-width="2.5"/>
+    <text x="20" y="55" fill="#3fb950" font-size="11" font-weight="bold" text-anchor="middle">LED 1 (Active)</text>
+  </g>
+  <path d="M 518 280 L 750 280" fill="none" stroke="#58a6ff" stroke-width="2.5"/>
+
+  <!-- CIRCUIT 3: LED 2 (GPIO 6 -> Resistor -> Red LED -> GND) -->
+  <path d="M 260 340 L 370 340" fill="none" stroke="#f85149" stroke-width="2.5"/>
+
+  <!-- 220 Ohm Resistor 2 -->
+  <g transform="translate(370, 330)">
+    <rect x="0" y="0" width="55" height="20" rx="3" fill="#d29922" stroke="#f0e6d2" stroke-width="1"/>
+    <line x1="12" y1="0" x2="12" y2="20" stroke="#f85149" stroke-width="2"/>
+    <line x1="22" y1="0" x2="22" y2="20" stroke="#f85149" stroke-width="2"/>
+    <line x1="32" y1="0" x2="32" y2="20" stroke="#a371f7" stroke-width="2"/>
+    <text x="27" y="35" fill="#f0e6d2" font-size="10" text-anchor="middle">220 Ω</text>
+  </g>
+  <path d="M 425 340 L 480 340" fill="none" stroke="#f85149" stroke-width="2.5"/>
+
+  <!-- LED 2 (Red) Symbol -->
+  <g transform="translate(480, 320)">
+    <circle cx="20" cy="20" r="18" fill="#da3633" stroke="#f85149" stroke-width="2"/>
+    <polygon points="12,12 12,28 26,20" fill="#f0f6fc"/>
+    <line x1="26" y1="12" x2="26" y2="28" stroke="#f0f6fc" stroke-width="2.5"/>
+    <text x="20" y="55" fill="#f85149" font-size="11" font-weight="bold" text-anchor="middle">LED 2 (Opposite)</text>
+  </g>
+  <path d="M 518 340 L 750 340" fill="none" stroke="#58a6ff" stroke-width="2.5"/>
+
+  <!-- COMMON GND BUS -->
+  <!-- Vertical GND Rail -->
+  <path d="M 750 220 L 750 390" fill="none" stroke="#58a6ff" stroke-width="3"/>
+  <circle cx="750" cy="220" r="4" fill="#58a6ff"/>
+  <circle cx="750" cy="280" r="4" fill="#58a6ff"/>
+  <circle cx="750" cy="340" r="4" fill="#58a6ff"/>
+  <circle cx="750" cy="390" r="4" fill="#58a6ff"/>
+
+  <!-- Return Wire to ESP32 GND -->
+  <path d="M 750 390 L 260 390" fill="none" stroke="#58a6ff" stroke-width="2.5" stroke-dasharray="4 4"/>
+  <text x="500" y="415" fill="#58a6ff" font-size="12" font-weight="bold" text-anchor="middle">Common Ground (GND Rail)</text>
+
+  <!-- Logic State Indicators Box -->
+  <g transform="translate(590, 85)">
+    <rect x="0" y="0" width="220" height="95" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="15" y="22" fill="#58a6ff" font-size="11" font-weight="bold">LOGIC TRUTH SUMMARY</text>
+    <text x="15" y="45" fill="#f0f6fc" font-size="11">• Button Released (3.3V / HIGH):</text>
+    <text x="25" y="60" fill="#8b949e" font-size="10">LED 1 = OFF  |  LED 2 = ON</text>
+    <text x="15" y="78" fill="#f0f6fc" font-size="11">• Button Pressed (0.0V / LOW):</text>
+    <text x="25" y="93" fill="#8b949e" font-size="10">LED 1 = ON   |  LED 2 = OFF</text>
+  </g>
+</svg>
