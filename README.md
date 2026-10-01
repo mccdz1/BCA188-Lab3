@@ -30,15 +30,21 @@ void loop() {
 
 ---
 
-## 2. Labeled Circuit Diagram
+## 2. Labeled Circuit Diagram and Photos
 
+### Schematic Diagram
 ![Circuit Diagram](circuit_diagram.svg)
+
+### Circuit Testing & Documentation
+| Button Released (Blue LED ON, Red LED OFF) | Button Pressed (Red LED ON, Blue LED OFF) |
+| :---: | :---: |
+| <img src="circuit_released.png" width="360"/> | <img src="circuit_pressed.png" width="360"/> |
 
 ---
 
 ## 3. Pressed / Released Observation Table
 
-| Button State | `digitalRead(BUTTON_PIN)` | LED 1 (GPIO 5) | LED 2 (GPIO 6) |
+| Button State | `digitalRead(BUTTON_PIN)` | LED 1 - Red (GPIO 5) | LED 2 - Blue (GPIO 6) |
 | :--- | :--- | :--- | :--- |
 | **Released** | HIGH | OFF | ON |
 | **Pressed** | LOW | ON | OFF |
