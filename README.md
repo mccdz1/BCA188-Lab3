@@ -104,41 +104,27 @@ When the physical **RESET (EN/RST)** button on the ESP32-S3 is triggered:
 ## 💻 6. Source Code (`Laboratory_Activity_3.ino`)
 
 ```cpp
-/**
- * Laboratory Activity 3: GPIO and Button Control
- * Target: ESP32-S3
- */
-
 #include <Arduino.h>
 
-// Pin assignments tailored for ESP32-S3
-const uint8_t BUTTON_PIN = 4;  // Tactile Pushbutton connected to GND
-const uint8_t LED1_PIN   = 5;  // Primary Status LED (ON when pressed)
-const uint8_t LED2_PIN   = 6;  // Secondary LED (OFF when pressed - opposite state)
+const uint8_t BUTTON_PIN = 4;
+const uint8_t LED1_PIN   = 5;
+const uint8_t LED2_PIN   = 6;
 
 void setup() {
-  Serial.begin(115200);
-
-  // Enable internal pull-up resistor on the input pin
   pinMode(BUTTON_PIN, INPUT_PULLUP);
 
-  // Configure LED pins as digital outputs
   pinMode(LED1_PIN, OUTPUT);
   pinMode(LED2_PIN, OUTPUT);
 
-  // Set predictable starting state
   digitalWrite(LED1_PIN, LOW);
   digitalWrite(LED2_PIN, HIGH);
 }
 
 void loop() {
-  // Read button state (Active-LOW: pressed connects to GND)
   const bool pressed = (digitalRead(BUTTON_PIN) == LOW);
 
-  // LED 1 turns ON when pressed
   digitalWrite(LED1_PIN, pressed ? HIGH : LOW);
 
-  // LED 2 turns ON when released (opposite state)
   digitalWrite(LED2_PIN, pressed ? LOW : HIGH);
 }
 ```
